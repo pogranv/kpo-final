@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Auth</name>
+    </assembly>
+    <members>
+        <member name="M:Auth.Controllers.UserController.GetInfoAboutUser">
+            <summary>
+            Предоставляет информацию о текущем авторизованном пользователе.
+            </summary>
+            <returns>Данные пользователя.</returns>
+        </member>
+        <member name="M:Auth.Controllers.UserController.AuthorizeUser(Auth.Models.Requests.AuthorizeUserRequest)">
+            <summary>
+            Осуществляет процедуру авторизации пользователя.
+            </summary>
+            <param name="userRequest">Содержимое запроса на авторизацию.</param>
+            <returns>WT токен для процедуры авторизации.</returns>
+        </member>
+        <member name="M:Auth.Controllers.UserController.RegistrateUser(Auth.Models.Requests.RegistrateUserRequest)">
+            <summary>
+            Осуществляет процесс регистрации пользователя.
+            </summary>
+            <param name="registrateUserRequest">Содержимое запроса на регистрацию.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Auth.Models.Requests.RegistrateUserRequest.Email">
+            <summary>
+            Почта пользователя.
+            </summary>
+        </member>
+        <member name="P:Auth.Models.Requests.RegistrateUserRequest.Username">
+            <summary>
+            Ник пользователя.
+            </summary>
+        </member>
+        <member name="P:Auth.Models.Requests.RegistrateUserRequest.Password">
+            <summary>
+            Пароль пользователя.
+            </summary>
+        </member>
+        <member name="P:Auth.Models.Requests.RegistrateUserRequest.Role">
+            <summary>
+            Роль пользователя:
+            0 - customer
+            1 - chef
+            2 - manager
+            </summary>
+        </member>
+        <member name="P:Auth.Models.Requests.AuthorizeUserRequest.Email">
+            <summary>
+             Почта пользователя.
+            </summary>
+        </member>
+        <member name="P:Auth.Models.Requests.AuthorizeUserRequest.Password">
+            <summary>
+            Пароль пользователя.
+            </summary>
+        </member>
+        <member name="T:Auth.Models.Role">
+            <summary>
+            0 - customer
+            1 - chef
+            2 - manager
+            </summary>
+        </member>
+    </members>
+</doc>

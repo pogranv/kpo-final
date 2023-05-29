@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rest</name>
+    </assembly>
+    <members>
+        <member name="M:Rest.Controllers.DishController.CreateDish(Rest.Models.Requests.CreateDishRequest)">
+            <summary>
+            Добавляет новое блюдо в меню.
+            </summary>
+            <param name="request">Тело запроса.</param>
+            <returns>Id созданного блюда.</returns>
+        </member>
+        <member name="M:Rest.Controllers.DishController.GetDishesInfo(Rest.Models.Requests.GetDishesInfoRequest)">
+            <summary>
+            Получает информацию по запрошенным блюдам.
+            </summary>
+            <param name="request">Id запрашиваемых блюд. Если указать пустым, вернется информация по всем блюдам.</param>
+            <returns>Информация по запрошенным блюдам.</returns>
+        </member>
+        <member name="M:Rest.Controllers.DishController.RemoveDish(System.Int64)">
+            <summary>
+            Удаляет блюдо из меню.
+            </summary>
+            <param name="dishId">Id блюда, которое нужно удалить.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rest.Controllers.DishController.ChangeDish(System.Int64,Rest.Models.Requests.ChangeDishRequest)">
+            <summary>
+            По id блюда позволяет частично или полностью изменить информацию о нем.
+            </summary>
+            <param name="dishId">Id блюда.</param>
+            <param name="request">Тело, в котором указывается, какие поля и на что поменять.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rest.Controllers.DishController.GetAvailableDishesInfo">
+            <summary>
+            Получает доступные в меню блюда.
+            </summary>
+            <returns>Информация о блюдах.</returns>
+        </member>
+        <member name="M:Rest.Controllers.OrderController.CreateDish(Rest.Models.Requests.CreateOrderRequest)">
+            <summary>
+            Создает новый заказ.
+            </summary>
+            <param name="request">Детали заказа.</param>
+            <returns>Id созданного заказа.</returns>
+        </member>
+        <member name="M:Rest.Controllers.OrderController.GetInfo(System.Int64)">
+            <summary>
+            Получает информацию о заказе.
+            </summary>
+            <param name="orderId">Id заказа</param>
+            <returns>Информация по заказу.</returns>
+        </member>
+        <member name="T:Rest.Models.Requests.ChangeDishRequest">
+            <summary>
+            Тело изменения блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.ChangeDishRequest.Name">
+            <summary>
+            Новое название блюда (опционально).
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.ChangeDishRequest.Description">
+            <summary>
+            Новое описание блюда (опционально).
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.ChangeDishRequest.Price">
+            <summary>
+            Новая цена блюда (опционально).
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.ChangeDishRequest.Quantity">
+            <summary>
+            Новое количество блюда (опционально).
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.ChangeDishRequest.IsAvailable">
+            <summary>
+            Доступность блюда (опционально).
+            </summary>
+        </member>
+        <member name="T:Rest.Models.Requests.CreateDishRequest">
+            <summary>
+            Тело создания нового блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateDishRequest.Name">
+            <summary>
+            Имя блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateDishRequest.Description">
+            <summary>
+            Описание блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateDishRequest.Price">
+            <summary>
+            Цена блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateDishRequest.Quantity">
+            <summary>
+            Количество блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateDishRequest.IsAvailable">
+            <summary>
+            Доступность блюда.
+            </summary>
+        </member>
+        <member name="T:Rest.Models.Requests.CreateOrderRequest">
+            <summary>
+            Тело создания заказа.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateOrderRequest.Dishes">
+            <summary>
+            Список блюд.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.CreateOrderRequest.SpecialRequests">
+            <summary>
+            Пожелания по заказу.
+            </summary>
+        </member>
+        <member name="T:Rest.Models.Requests.DishDetails">
+            <summary>
+            Детали заказа блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.DishDetails.DishId">
+            <summary>
+            Id блюда.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.DishDetails.Quantity">
+            <summary>
+            Количество блюда.
+            </summary>
+        </member>
+        <member name="T:Rest.Models.Requests.GetDishesInfoRequest">
+            <summary>
+            Тело запроса получения блюд.
+            </summary>
+        </member>
+        <member name="P:Rest.Models.Requests.GetDishesInfoRequest.RequiredIds">
+            <summary>
+            Список id блюд, по которым нужно вернуть информаицю. Если список
+            пустой, возвращаются все существующие блюда. Возвращаюстся даже
+            недоступные блюда.
+            </summary>
+        </member>
+    </members>
+</doc>

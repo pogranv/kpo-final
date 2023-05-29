@@ -1,0 +1,54 @@
+version: "3.9"
+networks:
+  deploy-guide-dev:
+    driver: bridge
+services:
+  auth: 
+    container_name: auth-deploy
+    build:
+     context: ./Auth
+     dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - deploy-guide-dev
+    depends_on:
+      - postgres_db
+  rest: 
+    container_name: rest-deploy
+    build:
+     context: ./Rest
+     dockerfile: Dockerfile
+    ports:
+      - "81:80"
+    networks:
+      - deploy-guide-dev
+    depends_on:
+      - postgres_db
+  postgres_db:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: rest_db
+    ports:
+      - "5555:5432"
+    networks:
+      - deploy-guide-dev
+    volumes:
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - postgres-data:/var/lib/postgresql/data
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: "admin@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    networks:
+      - deploy-guide-dev
+    ports: 
+      - "16543:80"
+    depends_on: 
+      - postgres_db
+volumes:
+  postgres-data:
